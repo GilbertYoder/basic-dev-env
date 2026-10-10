@@ -5,7 +5,7 @@ Installs: Neovim (Snap), fzf, ripgrep, Node.js + npm (nvm), Pyright, Lazygit, De
 ## Install
 
 ```bash
-git clone <YOUR-REPO-URL> ~/terminal-bootstrap
+git clone https://github.com/GilbertYoder/basic-dev-env.git ~/terminal-bootstrap
 bash ~/terminal-bootstrap/bootstrap.sh
 source ~/.bashrc
 ```
