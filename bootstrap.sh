@@ -30,6 +30,6 @@ cp ./lazygit/config.yml ~/.config/lazygit/config.yml
 cp ./gitconfig ~/.gitconfig
 
 # Shell additions
-cat ./shell.sh >> ~/.bashrc
+echo 'source ~/terminal-bootstrap/shell/aliases.sh' >> ~/.bashrc
 
 echo "Done. Restart your shell."
