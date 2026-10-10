@@ -41,6 +41,7 @@ vim.cmd.packadd('blink.lib')
 require('blink.cmp').setup({
     keymap = {
         preset = 'default',
+        ['<Tab>'] = { 'accept', 'fallback' },
     },
     completion = {
         documentation = {
