@@ -18,8 +18,6 @@ sudo npm install -g pyright
 
 # Treesitter
 sudo npm install -g tree-sitter-cli
-git clone https://github.com/nvim-treesitter/nvim-treesitter \
-      ~/.local/share/nvim/site/pack/plugins/start/nvim-treesitter
 
 # Lazygit
 sudo snap install lazygit

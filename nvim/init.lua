@@ -21,6 +21,11 @@ vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references)
 vim.keymap.set('i', '<C-Space>', '<C-x><C-o>')
 
+vim.pack.add({
+    'https://github.com/nvim-treesitter/nvim-treesitter',
+    'https://github.com/ibhagwan/fzf-lua',
+})
+
 require('nvim-treesitter').install({ 'python', 'lua', 'bash', 'json', 'yaml' })
 vim.api.nvim_create_autocmd('FileType', {
     callback = function()
@@ -28,3 +33,7 @@ vim.api.nvim_create_autocmd('FileType', {
     end,
 })
 
+local fzf = require('fzf-lua')
+vim.keymap.set('n', '<leader>f', fzf.files)
+vim.keymap.set('n', '<leader>g', fzf.live_grep)
+vim.keymap.set('n', '<leader>b', fzf.buffers)
