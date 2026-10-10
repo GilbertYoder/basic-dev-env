@@ -8,13 +8,6 @@ vim.opt.tabstop = 4
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-vim.lsp.config('pyright', {
-  cmd = { 'pyright-langserver', '--stdio' },
-  filetypes = { 'python' },
-  root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', '.git' },
-})
-vim.lsp.enable('pyright')
-
 vim.g.mapleader = ' '
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
@@ -24,6 +17,9 @@ vim.keymap.set('i', '<C-Space>', '<C-x><C-o>')
 vim.pack.add({
     'https://github.com/nvim-treesitter/nvim-treesitter',
     'https://github.com/ibhagwan/fzf-lua',
+    'https://github.com/lewis6991/gitsigns.nvim',
+    'https://github.com/saghen/blink.cmp',
+    'https://github.com/windwp/nvim-autopairs',
 })
 
 require('nvim-treesitter').install({ 'python', 'lua', 'bash', 'json', 'yaml' })
@@ -37,3 +33,32 @@ local fzf = require('fzf-lua')
 vim.keymap.set('n', '<leader>f', fzf.files)
 vim.keymap.set('n', '<leader>g', fzf.live_grep)
 vim.keymap.set('n', '<leader>b', fzf.buffers)
+
+require('gitsigns').setup()
+require('nvim-autopairs').setup()
+
+require('blink.cmp').setup({
+    keymap = {
+        preset = 'default',
+    },
+    completion = {
+        documentation = {
+            auto_show = true,
+        },
+    },
+})
+
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+vim.lsp.config('pyright', {
+    cmd = { 'pyright-langserver', '--stdio' },
+    filetypes = { 'python' },
+    root_markers = {
+        'pyproject.toml',
+        'setup.py',
+        'setup.cfg',
+        'requirements.txt',
+        '.git',
+    },
+    capabilities = capabilities,
+})
+vim.lsp.enable('pyright')
