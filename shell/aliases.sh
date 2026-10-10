@@ -7,3 +7,6 @@ vf() {
 
 alias v='nvim'
 alias lg='lazygit'
+
+export EDITOR=nvim
+export VISUAL=nvim
