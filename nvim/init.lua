@@ -12,12 +12,12 @@ vim.g.mapleader = ' '
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
 vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references)
-vim.keymap.set('i', '<C-Space>', '<C-x><C-o>')
 
 vim.pack.add({
     'https://github.com/nvim-treesitter/nvim-treesitter',
     'https://github.com/ibhagwan/fzf-lua',
     'https://github.com/lewis6991/gitsigns.nvim',
+    'https://github.com/saghen/blink.lib',
     'https://github.com/saghen/blink.cmp',
     'https://github.com/windwp/nvim-autopairs',
 })
@@ -37,6 +37,7 @@ vim.keymap.set('n', '<leader>b', fzf.buffers)
 require('gitsigns').setup()
 require('nvim-autopairs').setup()
 
+vim.cmd.packadd('blink.lib')
 require('blink.cmp').setup({
     keymap = {
         preset = 'default',

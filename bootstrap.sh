@@ -8,7 +8,8 @@ sudo apt install -y \
     fzf \
     ripgrep \
     nodejs \
-    npm
+    npm \
+    cargo
 
 # Neovim
 sudo snap install nvim --classic
