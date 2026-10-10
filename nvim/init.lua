@@ -1,4 +1,4 @@
-vim.cmd.colorscheme('catppuccin')
+vim.cmd.colorscheme('koehler')
 
 vim.opt.number = true
 vim.opt.relativenumber = true
